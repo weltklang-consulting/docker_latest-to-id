@@ -9,12 +9,6 @@ Es liest die **lokalen Image-Digests** via `docker image inspect` aus und ermitt
 
 So erhältst du zuverlässig die _genaue Versionsnummer_, auch wenn `latest` inzwischen auf eine neuere Version verweist.
 
-
----
-## Motivation
-Docker-Images mit dem Tag latest sind praktisch, aber oft problematisch, da sich dieser Tag ständig ändern kann.
-Mit diesem Skript lässt sich schnell prüfen, welche konkrete Version lokal verwendet wird, auch wenn latest in der Registry inzwischen weitergezogen ist.
-
 ---
 
 ## Features
@@ -88,7 +82,7 @@ Optional in $PATH aufnehmen oder via python3 docker_latest-local-to-id.py … au
 | -v             | --debug	Debug-Logs aktivieren  |
 | --json         | JSON-Ausgabe statt menschenlesbarer Text  |
 |  --scan-all    |  Alle Tag-Seiten durchsuchen (langsamer). Standard: Stoppt nach erstem Treffer |
-| --max-pages N  | Maximale Anzahl von Seiten, die von der Hub-API geladen werden (Default: 200)  |
+| --max-pages N  | Maximale Anzahl von Seiten, die von der Hub-API geladen werden (Default: 10)  |
 
 
 ## Beispielausgabe
@@ -96,6 +90,8 @@ Optional in $PATH aufnehmen oder via python3 docker_latest-local-to-id.py … au
 ### Standardausgabe
 
 ```bash
+$ python3 docker_latest-local-to-id.py ollama/ollama:latest
+
 Image: ollama/ollama:latest
 Repository: ollama/ollama
 Lokale RepoDigest(s):
@@ -108,7 +104,8 @@ Zugeordnete Tags auf Docker Hub:
 
 
 ### JSON-Ausgabe
-```json
+```bash
+$ python3 docker_latest-local-to-id.py ollama/ollama:latest
 {
   "input": "ollama/ollama:latest",
   "repository": "ollama/ollama",
@@ -127,7 +124,7 @@ Zugeordnete Tags auf Docker Hub:
     "0.11.11"
   ],
   "scan_all": false,
-  "max_pages": 200
+  "max_pages": 10
 }
 ```
 

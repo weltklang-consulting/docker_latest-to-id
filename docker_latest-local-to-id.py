@@ -182,7 +182,7 @@ def collect_hub_tags_for_digests(
     target_digests: Set[str],
     *,
     scan_all: bool = False,
-    max_pages: int = 200
+    max_pages: int = 10
 ) -> Set[str]:
     """
     Sucht auf Docker Hub nach Tags, die auf einen der target_digests zeigen.
@@ -252,8 +252,8 @@ def main():
     parser.add_argument("--json", action="store_true", help="JSON-Ausgabe")
     parser.add_argument("--scan-all", action="store_true",
                         help="Alle Tag-Seiten scannen (langsamer). Standard: stoppt nach erstem Treffer.")
-    parser.add_argument("--max-pages", type=int, default=200,
-                        help="Maximale Anzahl Tag-Seiten, die abgerufen werden (Default: 200).")
+    parser.add_argument("--max-pages", type=int, default=10,
+                        help="Maximale Anzahl Tag-Seiten, die abgerufen werden (Default: 10).")
 
     # Wenn ohne Parameter aufgerufen → Hilfe + Beispiele ausgeben und beenden
     if len(sys.argv) == 1:
