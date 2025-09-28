@@ -1,5 +1,5 @@
 # docker_latest-to-id
-Ein kleines Python-Tool, das nicht die aktuelle latest-Version aus der Registry, sondern die lokal zuletzt heruntergeladene LATEST Image-Version bestimmt um folgendes Problem zu lösen:
+Ein kleines Python-Tool, das nicht die aktuelle latest-Version aus der Registry, sondern die lokal zuletzt heruntergeladene LATEST Image-Version bestimmt **um folgendes Problem zu lösen**:
 
 > [!TIP]
 > Einen docker compose Dienst von `latest` auf eine fixe Versionsnummer umstellen, ohne auf die aktuell neueste `latest` Version aktualisieren zu müssen.
