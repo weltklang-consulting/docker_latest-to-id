@@ -1,13 +1,18 @@
 # docker_latest-to-id
-Ein kleines Python-Tool, das die Version eines **lokal** verwendeten LATEST Docker-Image bestimmt.
+Ein kleines Python-Tool, das nicht die aktuelle latest-Version aus der Registry, sondern die lokal zuletzt heruntergeladene LATEST Image-Version bestimmt um folgendes Problem zu lösen:
+
+> [!TIP]
+> Einen docker compose Dienst von `latest` auf eine fixe Versionsnummer umstellen, ohne auf die aktuell neueste `latest` Version aktualisieren zu müssen.
+
+Dazu muss natürlich die aktuell verwendete Versionsnummer bekannt sein, um diese entsprechend in der docker compose Datei anzugeben.
 
 
-Gerade wenn ein Image mit dem Tag `latest` verwendet wird, ist oft unklar, auf welche konkrete Version (z. B. `v0.11.11`) dieses lokal tatsächlich verweist.  
+Gerade wenn ein Image mit dem Tag `latest` verwendet wird, ist oft unklar, auf welche konkrete Version (z. B. `v0.11.11`) dieses lokal tatsächlich verweist und ob zwischen eine neuere latest Version existiert.
 
-Dieses Skript löst genau dieses Problem:  
-Es liest die **lokalen Image-Digests** via `docker image inspect` aus und ermittelt anschließend über die **Docker Hub API**, welche offiziellen Tags/Versionen auf diesen Digest zeigen.  
+Das Script liest die **lokalen Image-Digests** via `docker image inspect` aus und ermittelt anschließend über die **Docker Hub API**, welche offiziellen Tags/Versionen auf diesen Digest zeigen.  
 
-So erhältst du zuverlässig die _genaue Versionsnummer_, auch wenn `latest` inzwischen auf eine neuere Version verweist.
+
+
 
 ---
 
