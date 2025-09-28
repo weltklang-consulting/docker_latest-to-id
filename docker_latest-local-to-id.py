@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-get_used_local_version_id.py
+docker_latest-local-to-id.py
 Ermittelt den/die lokalen Repo-Digest(s) eines Images via:
   docker image inspect <repo[:tag]>
 und mappt diese Digests auf die zugehörigen Tags/Versionen auf Docker Hub.
 
 Aufruf:
-  python3 get_used_local_version_id.py <repo[:tag]> [--scan-all] [--max-pages N] [-v] [--json]
+  python3 docker_latest-local-to-id.py <repo[:tag]> [--scan-all] [--max-pages N] [-v] [--json]
 
 Beispiele:
-  python3 get_used_local_version_id.py ollama/ollama:latest
-  python3 get_used_local_version_id.py ubuntu -v --json
-  python3 get_used_local_version_id.py ollama/ollama:latest --scan-all --max-pages 10
+  python3 docker_latest-local-to-id.py ollama/ollama:latest
+  python3 docker_latest-local-to-id.py ubuntu -v --json
+  python3 docker_latest-local-to-id.py ollama/ollama:latest --scan-all --max-pages 10
 """
 
 import argparse
@@ -38,13 +38,13 @@ def print_help_and_examples(parser: argparse.ArgumentParser) -> None:
     print("""
 Beispielaufrufe:
   # Schnell: stoppt nach dem ersten Treffer
-  python3 get_used_local_version_id.py ollama/ollama:latest
+  python3 docker_latest-local-to-id.py ollama/ollama:latest
 
   # Vollständig: scannt alle Tag-Seiten und sammelt alle passenden Tags
-  python3 get_used_local_version_id.py ollama/ollama:latest --scan-all
+  python3 docker_latest-local-to-id.py ollama/ollama:latest --scan-all
 
   # Debug-Logs + Seitenlimit
-  python3 get_used_local_version_id.py ollama/ollama:latest -v --scan-all --max-pages 5
+  python3 docker_latest-local-to-id.py ollama/ollama:latest -v --scan-all --max-pages 5
 
 Beispielausgabe (typisch) für 'ollama/ollama:latest':
   Image: ollama/ollama:latest
