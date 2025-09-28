@@ -1,5 +1,5 @@
 # docker_latest-to-id
-Ein kleines Python-Tool, das hilft, die exakte LATEST Version eines lokal vorhandenen Docker-Images zu bestimmen.
+Ein kleines Python-Tool, das die Version eines **lokal** verwendeten LATEST Docker-Image bestimmt.
 
 
 Gerade wenn ein Image mit dem Tag `latest` verwendet wird, ist oft unklar, auf welche konkrete Version (z. B. `v0.11.11`) dieses lokal tatsächlich verweist.  
